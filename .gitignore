@@ -1,0 +1,41 @@
+# Entornos locales y credenciales (conservar las plantillas)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.keystore
+*.jks
+key.properties
+
+# Dependencias, compilaciones y cobertura
+node_modules/
+build/
+dist/
+coverage/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.gradle/
+
+# Archivos locales del sistema y del editor
+.DS_Store
+._*
+.idea/
+*.iml
+*.log
+*.swp
+
+# Configuración local de herramientas
+.codex/
+.agents/
+.aws/
+
+# Capturas locales con tokens de acceso visibles: no publicar.
+/evidencias/peticionesEvidencias/02_verPerfil.png
+/evidencias/peticionesEvidencias/03_game_start.png
+/evidencias/peticionesEvidencias/04_hint_response.png
+/evidencias/peticionesEvidencias/05_game_finish.png
+/evidencias/peticionesEvidencias/07_ranking_get.png
+/evidencias/peticionesEvidencias/08_nivels.png
