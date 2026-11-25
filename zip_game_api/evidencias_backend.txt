@@ -1,0 +1,84 @@
+c[ info ] booting application to run tests...
+
+unit / GameValidatorService (tests/unit/game_validator.spec.ts)
+  ✔ accepts a complete valid solution (0.79ms)
+  ✔ rejects a path that does not start on number 1 (0.1ms)
+  ✔ rejects diagonal movements (0.06ms)
+  ✔ rejects jumps of more than one cell (0.05ms)
+  ✔ rejects repeated cells (0.06ms)
+  ✔ rejects skipping a checkpoint (0.08ms)
+  ✔ rejects reaching the last number before covering every cell (0.05ms)
+  ✔ rejects incomplete paths (0.05ms)
+  ✔ rejects cells outside the board (0.06ms)
+
+unit / LevelGeneratorService (tests/unit/level_generator.spec.ts)
+  ✔ random Hamiltonian paths visit the 36 cells once (45.18ms)
+  ✔ generated undefined levels are solvable and respect the rules (27.08ms)
+  ✔ generated undefined levels are solvable and respect the rules (36.95ms)
+  ✔ generated undefined levels are solvable and respect the rules (33.06ms)
+  ✔ the same seed generates the same level (6.68ms)
+  ✔ hard levels score higher on average than easy levels (36.64ms)
+
+unit / ScoringService (tests/unit/scoring_hint_adaptive.spec.ts)
+  ✔ fast game without mistakes gets base + time bonus (0.13ms)
+  ✔ mistakes, hints and slow time reduce the score (0.05ms)
+  ✔ score never goes below 10% of the base (0.03ms)
+
+unit / HintService (tests/unit/scoring_hint_adaptive.spec.ts)
+  ✔ suggests the next cell of the solution (0.23ms)
+  ✔ rejects invalid paths (0.04ms)
+  ✔ empty path hints the cell with number 1 (0.04ms)
+
+unit / AdaptiveDifficultyService (tests/unit/scoring_hint_adaptive.spec.ts)
+  ✔ increases after two excellent games (0.14ms)
+  ✔ decreases after two poor games (0.03ms)
+  ✔ keeps difficulty with mixed results (0.03ms)
+  ✔ never goes above hard (0.04ms)
+[ success ] Dropped tables successfully
+[ info ] Upgrading migrations version from "1" to "2"
+❯ migrating database/migrations/1763600000001_create_users_table
+[2K[1A[2K[G❯ migrated database/migrations/1763600000001_create_users_table
+❯ migrating database/migrations/1763600000002_create_access_tokens_table
+[2K[1A[2K[G❯ migrated database/migrations/1763600000002_create_access_tokens_table
+❯ migrating database/migrations/1763600000003_create_levels_table
+[2K[1A[2K[G❯ migrated database/migrations/1763600000003_create_levels_table
+❯ migrating database/migrations/1763600000004_create_game_sessions_table
+[2K[1A[2K[G❯ migrated database/migrations/1763600000004_create_game_sessions_table
+❯ migrating database/migrations/1763600000005_create_game_moves_table
+[2K[1A[2K[G❯ migrated database/migrations/1763600000005_create_game_moves_table
+❯ migrating database/migrations/1763600000006_create_scores_table
+[2K[1A[2K[G❯ migrated database/migrations/1763600000006_create_scores_table
+
+Migrated in 204 ms
+
+functional / Auth (tests/functional/api.spec.ts)
+  ✔ registers a player and returns a token (80.18ms)
+  ✔ returns 422 for invalid registration data (4.12ms)
+  ✔ logs in with valid credentials and rejects bad ones (116.71ms)
+  ✔ protected routes require a token (4.27ms)
+
+functional / Levels (tests/functional/api.spec.ts)
+  ✔ lists levels without exposing the solution (60.58ms)
+  ✔ returns 404 for a missing level (44.61ms)
+[18:42:32.121] WARN (53673): Row not found
+    request_id: "xcijc0yfxtp4z5wgia0x33s6"
+    x-request-id: "xcijc0yfxtp4z5wgia0x33s6"
+  ✔ generates and stores a new level (52.23ms)
+
+functional / Games (tests/functional/api.spec.ts)
+  ✔ full flow: start, hint, finish with a valid solution (86.71ms)
+  ✔ rejects an invalid solution with 422 (59.84ms)
+[18:42:32.379] WARN (53673): This game session is already finished
+    request_id: "nnx2jrrrkpccn5szrbriex98"
+    x-request-id: "nnx2jrrrkpccn5szrbriex98"
+  ✔ prevents finishing the same game twice (59.02ms)
+[18:42:32.467] WARN (53673): Game session not found
+    request_id: "y89l60i1zck8ry1bvuvdwvah"
+    x-request-id: "y89l60i1zck8ry1bvuvdwvah"
+  ✔ a player cannot finish another player game (87.88ms)
+  ✔ history and leaderboard reflect persisted results (74.23ms)
+
+ PASSED 
+
+Tests  37 passed (37)
+ Time  1s
